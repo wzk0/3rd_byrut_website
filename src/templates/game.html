@@ -39,10 +39,21 @@
       cursor: pointer;
     }
     .box{
-    	width: 30%;
+    	width: 35%;
     	align-items: center;
     	display: flex;
     	margin: auto;
+    }
+    .img-box{
+      width: 26%;
+      align-items: center;
+      display: flex;
+      margin: auto;
+      margin-left: 3px;
+      margin-right: 3px;
+      margin-bottom: 8px;
+      border: 3px solid;
+      border-radius: 6px;
     }
     .box img{
     	border: 3px solid;
@@ -50,6 +61,8 @@
     }
     .word{
     	vertical-align: middle;
+      margin-left: 20px;
+      margin-right: 20px;
     }
     .des{
     	font-family: system-ui;
@@ -62,36 +75,77 @@
     .des::first-letter{
     	font-size: 40px;
     }
+    div.bbox{
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .page{
+      display: flex;
+      margin: auto;
+      text-align: center;
+      width: 50%;
+    }
+    .page-o{
+      width: 100%;
+    }
+    .hr-o{
+      border: 0px;
+      border-bottom: 3px solid black;
+      width: 30%;
+    }
+    a.a-no{
+      color: black;
+      border: 0px;
+      display: flex;
+    }
   </style>
 
 </head>
 <body>
-  <h1>│ <a href="/">Home</a> │ {{ data['name'] }}</h1><br><br>
+  <h1>│ <a href="/"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 44V20L24 4L4 20L4 44H16V26H32V44H44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 44V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a> │ {{ data['name'] }}</h1><br><br>
+
 <center><form method="post">
   <input type="text" name="game" placeholder=" {{ data['name'] }}" value="{{ data['name'] }}" required>
-  <button><?xml version="1.0" encoding="UTF-8"?><svg width="33" height="33" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.2216 33.2217L41.7069 41.707" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button><?xml version="1.0" encoding="UTF-8"?><svg width="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.2216 33.2217L41.7069 41.707" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </form>
 </center>
 <br><br>
 <div class="box">
-		<img src="{{ data['img'] }}">
+		<a class="a-no" href="{{ data['download'] }}"><img src="{{ data['img'] }}"></a>
 			<div class="word">
-				<a href="{{ data['download'] }}"><h1>{{ data['name'] }} <?xml version="1.0" encoding="UTF-8"?><svg width="40" height="43" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.5178 34.3161C43.8044 32.005 45.2136 27.8302 44.0001 24C42.7866 20.1698 39.0705 18.0714 35.0527 18.0745H32.7317C31.2144 12.1613 26.2082 7.79572 20.1435 7.0972C14.0787 6.39868 8.21121 9.5118 5.38931 14.9253C2.56741 20.3388 3.37545 26.9317 7.42115 31.5035" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.0084 41L24 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.3638 34.6362L23.9998 41.0002L17.6358 34.6362" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></h1></a>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M16 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 34H34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34H20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 26H34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 26H20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['release_date'] }}</p>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18V42H39V18L24 6L9 18Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 29V42H29V29H19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M9 42H39" stroke="#333" stroke-width="4" stroke-linecap="round"/></svg> {{ data['developer'] }}</p>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9986 5L17.8856 17.4776L4 19.4911L14.0589 29.3251L11.6544 43L23.9986 36.4192L36.3454 43L33.9586 29.3251L44 19.4911L30.1913 17.4776L23.9986 5Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ data['rate']*10 }}/10.0 </p>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 24.0083V42H42V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 23L24 32L15 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.9917 6V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['dl_times'] }}</p>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 29H4V42H44V29Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M35.5 38C36.8807 38 38 36.8807 38 35.5C38 34.1193 36.8807 33 35.5 33C34.1193 33 33 34.1193 33 35.5C33 36.8807 34.1193 38 35.5 38Z" fill="#333"/><path d="M4 28.9998L9.03837 4.99902H39.0205L44 28.9998" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ data['storage'] }}</p>
-				<p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 8V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 24L6 40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 24C42 14.0589 33.9411 6 24 6C18.9145 6 14.3216 8.10896 11.0481 11.5M6 24C6 33.9411 14.0589 42 24 42C28.8556 42 33.2622 40.0774 36.5 36.9519" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['update_time'] }}</p>
+				<a href="{{ data['download'] }}"><h1>{{ data['name'] }} <?xml version="1.0" encoding="UTF-8"?><svg width="45" height="43" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.5178 34.3161C43.8044 32.005 45.2136 27.8302 44.0001 24C42.7866 20.1698 39.0705 18.0714 35.0527 18.0745H32.7317C31.2144 12.1613 26.2082 7.79572 20.1435 7.0972C14.0787 6.39868 8.21121 9.5118 5.38931 14.9253C2.56741 20.3388 3.37545 26.9317 7.42115 31.5035" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.0084 41L24 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.3638 34.6362L23.9998 41.0002L17.6358 34.6362" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></h1></a>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M16 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 34H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 26H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 26H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['release_date'] }}</p>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18V42H39V18L24 6L9 18Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 29V42H29V29H19Z" fill="#43CCF8" stroke="#FFF" stroke-width="4" stroke-linejoin="round"/><path d="M9 42H39" stroke="#333" stroke-width="4" stroke-linecap="round"/></svg> {{ data['developer'] }}</p>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9986 5L17.8856 17.4776L4 19.4911L14.0589 29.3251L11.6544 43L23.9986 36.4192L36.3454 43L33.9586 29.3251L44 19.4911L30.1913 17.4776L23.9986 5Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ data['rate']*10 }}/10.0</p>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 24.0083V42H42V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 23L24 32L15 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.9917 6V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['dl_times'] }}</p>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 29H4V42H44V29Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M35.5 38C36.8807 38 38 36.8807 38 35.5C38 34.1193 36.8807 33 35.5 33C34.1193 33 33 34.1193 33 35.5C33 36.8807 34.1193 38 35.5 38Z" fill="#FFF"/><path d="M4 28.9998L9.03837 4.99902H39.0205L44 28.9998" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ data['storage'] }}</p>
+				<p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.5424 27C32.2681 31.0571 28.4778 34 24.0002 34C19.5226 34 15.7323 31.0571 14.458 27V33" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.5424 15V21C32.2681 16.9429 28.4778 14 24.0002 14C19.5226 14 15.7323 16.9429 14.458 21" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ data['update_time'] }}</p>
 			</div>
 </div>
 <br><br><hr><br><br>
 
 <div class="des">{{ data['description'] }}</div>
 
-<br><hr><br>
+<br><br><hr><br><br>
 
-<center><footer><h2 style="color: dodgerblue;"><a href="/">Home</a></h2></footer></center>
+<div class="bbox">
+      {% for rd in r_data %}
+      <div class="img-box">
+        <a class="a-no" href="/game/{{ language }}{{ rd['url'] }}"><img src="{{ rd['img'] }}" width="180px" style="border-right: 3px solid;"></a>
+          <div class='word'>
+            <a href="/game/{{ language }}{{ rd['url'] }}"><h2>{{ rd['name'] }}</h2></a>
+            <p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M16 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 34H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 26H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 26H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>  {{ rd['release_year'] }}</p>
+            <p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.5178 34.3161C43.8044 32.005 45.2136 27.8302 44.0001 24C42.7866 20.1698 39.0705 18.0714 35.0527 18.0745H32.7317C31.2144 12.1613 26.2082 7.79572 20.1435 7.0972C14.0787 6.39868 8.21121 9.5118 5.38931 14.9253C2.56741 20.3388 3.37545 26.9317 7.42115 31.5035" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.0084 41L24 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.3638 34.6362L23.9998 41.0002L17.6358 34.6362" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ rd['dl_times'] }}</p>
+             <p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 29H4V42H44V29Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M35.5 38C36.8807 38 38 36.8807 38 35.5C38 34.1193 36.8807 33 35.5 33C34.1193 33 33 34.1193 33 35.5C33 36.8807 34.1193 38 35.5 38Z" fill="#FFF"/><path d="M4 28.9998L9.03837 4.99902H39.0205L44 28.9998" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ rd['storage'] }}</p>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+
+<br><br><hr><br>
+
+<center><footer><h2 style="color: dodgerblue;"><a href="/"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 44V20L24 4L4 20L4 44H16V26H32V44H44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 44V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2></footer></center>
 
 </body>
 </html>

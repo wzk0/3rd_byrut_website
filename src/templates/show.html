@@ -38,53 +38,108 @@
       border: 0px;
       cursor: pointer;
     }
-    div.box{
+    .box{
+      width: 30%;
+      align-items: center;
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
+      margin: auto;
     }
-    div.item{
-      width: 23%;
+    .img-box{
+      width: 33%;
+      align-items: center;
+      display: flex;
+      margin: auto;
       margin-left: 3px;
       margin-right: 3px;
       margin-bottom: 8px;
       border: 3px solid;
       border-radius: 6px;
     }
-    div.info{
-      margin-left: 5px;
-      margin-right: 5px;
+    .box img{
+      border: 3px solid;
+      margin-right: 50px;
+    }
+    .word{
+      vertical-align: middle;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .des{
+      font-family: system-ui;
+      font-weight: bold;
+      font-size: 20px;
+      width: 40%;
+      align-items: center;
+      margin: auto;
+    }
+    .des::first-letter{
+      font-size: 40px;
+    }
+    div.bbox{
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .page{
+      display: flex;
+      margin: auto;
+      text-align: center;
+      width: 50%;
+    }
+    .page-o{
+      width: 100%;
+    }
+    .hr-o{
+      border: 0px;
+      border-bottom: 3px solid black;
+      width: 30%;
+    }
+    a.a-no{
+      color: black;
+      border: 0px;
+      display: flex;
     }
   </style>
 
 </head>
 <body>
-  <h1>│ <a href="/">Home</a> │ {{ game }}</h1><br><br>
+  <h1>│ <a href="/"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 44V20L24 4L4 20L4 44H16V26H32V44H44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 44V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a> │ {{ game }}</h1><br><br>
 
 <center><form method="post">
   <input type="text" name="game" placeholder=" {{ game }}" value="{{ game }}" required>
-  <button><?xml version="1.0" encoding="UTF-8"?><svg width="33" height="33" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.2216 33.2217L41.7069 41.707" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button><?xml version="1.0" encoding="UTF-8"?><svg width="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.2216 33.2217L41.7069 41.707" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </form>
 </center>
 <br><br>
-  {% if data==[] %}
-  <center><h1>Nothing here...</h1></center>
-  {% else %}
-  <div class="box">
-    {% for d in data %}
-    <div class='item'>
-        <div class="info">
-          <a href="/game/{{ language }}{{ d['url'] }}"><h2>{{ d['name'] }}</h2></a>
-          <p><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9986 5L17.8856 17.4776L4 19.4911L14.0589 29.3251L11.6544 43L23.9986 36.4192L36.3454 43L33.9586 29.3251L44 19.4911L30.1913 17.4776L23.9986 5Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ d['rate']*10 }}/10.0  │ <?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M16 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 34H34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34H20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 26H34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 26H20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> {{ d['release_year'] }} │ <?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 29H4V42H44V29Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M35.5 38C36.8807 38 38 36.8807 38 35.5C38 34.1193 36.8807 33 35.5 33C34.1193 33 33 34.1193 33 35.5C33 36.8807 34.1193 38 35.5 38Z" fill="#333"/><path d="M4 28.9998L9.03837 4.99902H39.0205L44 28.9998" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ d['storage'] }}</p>
-          <p>{{ d['short_about'] }}</p>
-        </div>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-<br><hr><br>
 
-<center><footer><h2 style="color: dodgerblue;"><a href="/">Home</a></h2></footer></center>
+  {% if data==[] %}
+  <center><h1>Nothing here...<br><br><a href="/search/{{ language }}/{{ game }}/{{ page-1 }}"><?xml version="1.0" encoding="UTF-8"?><svg width="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M44 40.8361C39.1069 34.8632 34.7617 31.4739 30.9644 30.6682C27.1671 29.8625 23.5517 29.7408 20.1182 30.303V41L4 23.5453L20.1182 7V17.167C26.4667 17.2172 31.8638 19.4948 36.3095 24C40.7553 28.5052 43.3187 34.1172 44 40.8361Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg></a> │ <a href="/"><?xml version="1.0" encoding="UTF-8"?><svg width="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 44V20L24 4L4 20L4 44H16V26H32V44H44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 44V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h1></center>
+  {% else %}
+  <div class="bbox">
+        {% for d in data %}
+        <div class="img-box">
+          <a class="a-no" href="/game/{{ language }}{{ d['url'] }}"><img src="{{ d['img'] }}" width="183px" height="275px" style="border-right: 3px solid;"></a>
+            <div class='word'>
+              <a href="/game/{{ language }}{{ d['url'] }}"><h2>{{ d['name'] }}</h2></a>
+              <p><?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M16 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 4V12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 34H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 26H34" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 26H20" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>  {{ d['release_year'] }} │ <?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9986 5L17.8856 17.4776L4 19.4911L14.0589 29.3251L11.6544 43L23.9986 36.4192L36.3454 43L33.9586 29.3251L44 19.4911L30.1913 17.4776L23.9986 5Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ d['rate']*10 }}/10.0 │ <?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 29H4V42H44V29Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M35.5 38C36.8807 38 38 36.8807 38 35.5C38 34.1193 36.8807 33 35.5 33C34.1193 33 33 34.1193 33 35.5C33 36.8807 34.1193 38 35.5 38Z" fill="#FFF"/><path d="M4 28.9998L9.03837 4.99902H39.0205L44 28.9998" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg> {{ d['storage'] }}</p>
+               <p>{{ d['short_about'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <br><br><hr><br><br>
+
+      <div class="page">
+        <div class="page-o"><a href="/search/{{ language }}/{{ game }}/{{ page-1 }}"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M44 40.8361C39.1069 34.8632 34.7617 31.4739 30.9644 30.6682C27.1671 29.8625 23.5517 29.7408 20.1182 30.303V41L4 23.5453L20.1182 7V17.167C26.4667 17.2172 31.8638 19.4948 36.3095 24C40.7553 28.5052 43.3187 34.1172 44 40.8361Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg></a></div>
+        <div class="page-o"><a href="/search/{{ language }}/{{ game }}/{{ page+1 }}"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 40.8361C8.89307 34.8632 13.2383 31.4739 17.0356 30.6682C20.8329 29.8625 24.4483 29.7408 27.8818 30.303V41L44 23.5453L27.8818 7V17.167C21.5333 17.2172 16.1362 19.4948 11.6905 24C7.24474 28.5052 4.68126 34.1172 4 40.8361Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg></a></div>
+      </div>
+  {% endif %}
+
+
+
+<br><br><hr class="hr-o"><br>
+
+<center><footer><h2 style="color: dodgerblue;"><a href="/"><?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 44V20L24 4L4 20L4 44H16V26H32V44H44Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 44V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2></footer></center>
 
 </body>
 </html>
