@@ -3,6 +3,7 @@ from flask import Flask,render_template,request,url_for,redirect
 import random
 
 app=Flask(__name__)
+# 全局开关, 用于设置翻译目标语言
 Language=False
 
 @app.route('/',methods=['GET','POST'])
@@ -19,25 +20,34 @@ def search(game,language='zh',page='1'):
 		game=request.form.get('game')
 		return redirect(url_for('search',game=game,language='zh',page='1'))
 	if Language:
-		data=api.search(game,page=page,if_translate=True,language=language)
+		data_byrut=api.byrut.search(game,page=page,if_translate=True,language=language)
+		data_repack=api.repack.search(game,page=page,if_translate=True,language=language)
 	else:
-		data=api.search(game,page=page)
+		data_byrut=api.byrut.search(game,page=page)
+		data_repack=api.repack.search(game,page=page)
+	data=data_byrut+data_repack
 	page=int(page)
 	return render_template('show.html',data=data,game=game,language=language,page=page)
 
-@app.route('/game/<language>/<game>',methods=['GET', 'POST'])
-def info_game(language,game):
+@app.route('/game/<language>/<src>/<game>',methods=['GET', 'POST'])
+def info_game(language,src,game):
 	if request.method=='POST':
 		game=request.form.get('game')
 		return redirect(url_for('search',game=game,language='zh',page='1'))
 	if Language:
-		data=api.info('/'+game,if_translate=True,language=language)
+		if src=='byrut':
+			data=api.byrut.info('/'+game,if_translate=True,language=language)
+		elif src=='repack':
+			data=api.repack.info('/'+game,if_translate=True,language=language)
 	else:
-		data=api.info('/'+game)
+		if src=='byrut':
+			data=api.byrut.info('/'+game)
+		elif src=='repack':
+			data=api.repack.info('/'+game)
 	r_data=api.random_()
 	return render_template('game.html',data=data,r_data=r_data,language=language)
 
-@app.route('/api/<do>/<language>/<content>')
+@app.route('/api/<do>/<language>/<src>/<content>')
 def give_api(do,language,content):
 	if do=='search':
 		if Language:
