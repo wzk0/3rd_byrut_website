@@ -4,7 +4,7 @@ import random
 
 app=Flask(__name__)
 # 全局开关, 用于设置翻译目标语言
-Language=True
+Language=False
 
 @app.route('/',methods=['GET','POST'])
 def index():
