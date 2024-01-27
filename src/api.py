@@ -23,7 +23,8 @@ def get_soup(part,params={},data={},way='byrut'):
 		domain=domain_byrut
 	elif way=='repack':
 		domain=domain_repack
-	r=requests.post(domain+part,params=params,data=data,headers=headers)
+	req=requests.Session()
+	r=req.post(domain+part,params=params,data=data,headers=headers)
 	return BeautifulSoup(r.text,features='html5lib')
 
 # 翻译api的调用, 如果不使用百度, 也可以修改这个函数自行替换, 最后传出的结果是翻译后的纯文本.
@@ -152,7 +153,7 @@ def top(page,way):
 		storage=s.find('span',class_='size').text.replace('\n','').replace('    ','').replace('ГБ','G').replace('МБ','M').replace('Анонс','NULL')
 		dl_times=s.find('span',class_='views').text.replace(' ','')
 		release_year=s.find('span',class_='short_year').text.replace(' г.','')
-		result.append({'name':name,'url':url.replace(domain_byrut,''),'img':img,'storage':storage,'dl_times':dl_times,'release_year':release_year})
+		result.append({'name':name,'url':url.replace(domain_byrut,''),'img':img,'storage':storage,'dl_times':dl_times,'release_year':release_year,'src':'byrut'})
 	return result
 
 # 获取随机页码的随机排行榜.
